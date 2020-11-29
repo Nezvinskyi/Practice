@@ -4,7 +4,7 @@
 // Гласными являются «a», «e», «i», «o», «u».
 
 
-const text = 'abcdefghij'
+const text = 'abcdefghiju'
 let vowelsCounter = 0;
 let vowelsCounterSwitch = 0;
 
