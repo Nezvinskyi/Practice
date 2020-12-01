@@ -127,4 +127,52 @@
 
 // ----> method slice()
 
-const arraySlice=[]
+// const arraySlice = ['Rage,', 'rage', 'against', 'the', 'dying', 'of', 'the', 'light.'];
+// const newArray = arraySlice.slice(0, 2);
+// console.log('newArray :>> ', newArray);
+
+// // const endArray = arraySlice.slice(4);
+// const endArray = arraySlice.slice(-3);
+// console.log('endArray :>> ', endArray);
+
+// const copyArray = arraySlice;
+// console.log('copyArray :>> ', copyArray);
+
+// arraySlice[0] = 'r-@-g-e,';
+// console.log('arraySlice :>> ', arraySlice);
+// console.log('newArray :>> ', newArray);
+// console.log('copyArray :>> ', copyArray);
+
+// ----> method splice()
+
+// const bigArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const smallArray = bigArray.splice(5, 2);
+
+// console.log('bigArray :>> ', bigArray);
+// console.log('smallArray :>> ', smallArray);
+
+// bigArray.splice(5, 0, 'a', 'b', 'c');
+// console.log('bigArray :>> ', bigArray);
+
+
+// ----> Functions
+
+// const add = function (a,b=1,c=1) {
+//   return Math.pow(a,2)+2*b+c
+// };
+
+// const result = add(3,);
+// console.log('result :>> ', result);
+
+// ----->pseudoarray arguments
+
+const sum = function () {
+  let total = 0;
+
+  for (const argument of arguments) {
+    total += argument;
+  }
+  return total;
+}
+
+console.log('sum(1,2,3) :>> ', sum(1,2,3));
