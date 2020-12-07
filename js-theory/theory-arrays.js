@@ -166,13 +166,14 @@
 
 // ----->pseudoarray arguments
 
-const sum = function () {
-  let total = 0;
+// const sum = function () {
+//   let total = 0;
 
-  for (const argument of arguments) {
-    total += argument;
-  }
-  return total;
-}
+//   for (const argument of arguments) {
+//     total += argument;
+//   }
+//   return total;
+// }
 
-console.log('sum(1,2,3) :>> ', sum(1,2,3));
+// console.log('sum(1,2,3) :>> ', sum(1,2,3));
+
