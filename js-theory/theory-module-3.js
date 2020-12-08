@@ -163,3 +163,37 @@
 
 // add(1, 2, 3);
 // add(1, 2, 3, 4, 5);
+
+// // 1. Деструктуризация объектов
+// const hotel = {
+//   name: 'Resort Hotel',
+//   stars: 5,
+//   capacity: 100,
+// };
+// const { name, stars, status ='empty' } = hotel;
+// console.log(name, stars, status);
+// console.log(hotel);
+
+// const { name, ...rest } = hotel;
+
+// console.log(name);
+// console.log(rest);
+
+// 2. Деструктуризация массивов
+// const rgb = [200, 255, 100];
+// const [red, green, blue] = rgb;
+
+// console.log(red, green, blue);
+
+// const rgb = [200, 255, 100];
+
+// const [red, ...otherColors] = rgb;
+
+// console.log(red, otherColors);
+
+// const rgb = [200, 255, 100];
+
+// const [firsth,,last] = rgb;
+
+// console.log(firsth, last);
+
