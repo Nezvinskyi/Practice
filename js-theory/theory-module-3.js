@@ -475,51 +475,51 @@
 
 // bookShelf.updateBook('Мгла', 'Хроники подземелий')
 
-const atTheOldToad = {
-  potions: [
-    { name: 'Зелье скорости', price: 460 },
-    { name: 'Дыхание дракона', price: 780 },
-    { name: 'Каменная кожа', price: 520 },
-  ],
-  // Пиши код ниже этой строки
-  getPotions() {
-    return this.potions;
-  },
-  addPotion(potionName) {
-    for (const potion of this.potions) {
-      if (potion.name===potionName.name) {
-        return `Зелье ${potionName.name} уже есть в инвентаре!`;
-      }
-    }
-    this.potions.push(potionName);
-    // return this.potions;
-  },
-  removePotion(potionName) {
-    let potionIndex = -1;
-    for (let i = 0; i < this.potions.length; i++) {
-      if (this.potions[i].name === potionName) {
-        potionIndex = i;
-      }
-    }
-    this.potions.splice(potionIndex, 1);
-    // return this.potions;
-  },
-  updatePotionName(oldName, newName) {
-    let potionIndex = -1;
-    for (let i = 0; i < this.potions.length; i++) {
-      if (this.potions[i].name === oldName) {
-        potionIndex = i;
-        this.potions[i].name = newName
-      }
-    }
-  },
-  // Пиши код выше этой строки
-};
-// console.log(atTheOldToad.getPotions());
-// console.log(atTheOldToad.addPotion({ name: 'Невидимка', price: 620 }));
-// console.log(atTheOldToad.addPotion({ name: 'Зелье силы', price: 270 }));
-// console.log(atTheOldToad.removePotion('Дыхание дракона'));
-// console.log(atTheOldToad.removePotion('Зелье скорости'));
-// console.log(atTheOldToad.getPotions());
-console.log(atTheOldToad.updatePotionName('Дыхание дракона', 'Полиморф'));
-console.log(atTheOldToad.updatePotionName('Каменная кожа', 'Зелье неуязвимости'));
+// const atTheOldToad = {
+//   potions: [
+//     { name: 'Зелье скорости', price: 460 },
+//     { name: 'Дыхание дракона', price: 780 },
+//     { name: 'Каменная кожа', price: 520 },
+//   ],
+//   // Пиши код ниже этой строки
+//   getPotions() {
+//     return this.potions;
+//   },
+//   addPotion(potionName) {
+//     for (const potion of this.potions) {
+//       if (potion.name===potionName.name) {
+//         return `Зелье ${potionName.name} уже есть в инвентаре!`;
+//       }
+//     }
+//     this.potions.push(potionName);
+//     // return this.potions;
+//   },
+//   removePotion(potionName) {
+//     let potionIndex = -1;
+//     for (let i = 0; i < this.potions.length; i++) {
+//       if (this.potions[i].name === potionName) {
+//         potionIndex = i;
+//       }
+//     }
+//     this.potions.splice(potionIndex, 1);
+//     // return this.potions;
+//   },
+//   updatePotionName(oldName, newName) {
+//     let potionIndex = -1;
+//     for (let i = 0; i < this.potions.length; i++) {
+//       if (this.potions[i].name === oldName) {
+//         potionIndex = i;
+//         this.potions[i].name = newName
+//       }
+//     }
+//   },
+//   // Пиши код выше этой строки
+// };
+// // console.log(atTheOldToad.getPotions());
+// // console.log(atTheOldToad.addPotion({ name: 'Невидимка', price: 620 }));
+// // console.log(atTheOldToad.addPotion({ name: 'Зелье силы', price: 270 }));
+// // console.log(atTheOldToad.removePotion('Дыхание дракона'));
+// // console.log(atTheOldToad.removePotion('Зелье скорости'));
+// // console.log(atTheOldToad.getPotions());
+// console.log(atTheOldToad.updatePotionName('Дыхание дракона', 'Полиморф'));
+// console.log(atTheOldToad.updatePotionName('Каменная кожа', 'Зелье неуязвимости'));
