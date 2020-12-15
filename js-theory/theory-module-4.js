@@ -224,15 +224,52 @@
 // hotelGreeter(); // "Mango, wellcome to Resort Hotel!"
 
 
-const hotel = {
-  name: 'Resort Hotel',
-  showThis() {
-    console.log(this);
-  },
-};
+// const hotel = {
+//   name: 'Resort Hotel',
+//   showThis() {
+//     console.log(this);
+//   },
+// };
 
-const fn = function (callback) {
-  callback();
-}
+// const fn = function (callback) {
+//   callback();
+// }
 
-fn(hotel.showThis.bind(hotel))
+// fn(hotel.showThis.bind(hotel))
+
+
+
+// !----> Репета
+
+// // ------------------коллбэки
+// const greet = function (name) {
+//   console.log(`Hello ${name}`);
+// }
+
+// const greetWithName = function (callback) {
+//   const name = 'Mango';
+//   // console.log(callback);
+//   callback(name);
+// }
+
+// greetWithName(greet)
+
+// // ---------------отложенный вызов: интервалы
+
+// console.log('в коде перед таймаутом');
+// setTimeout(function() {
+//   console.log('Через 3 сек внутри колбэка в таймауте');
+// }, 3000);
+// console.log('в коде после таймаута');
+
+// // --------------------------
+// const handleFetchSuccess = function (data) {
+//   console.log(data);
+// }
+
+// console.log('перед fetch');
+// fetch('https://swapi.dev/api/people/20/')
+//   .then(res => res.json())
+//   .then(handleFetchSuccess)
+// console.log('после fetch');
+
