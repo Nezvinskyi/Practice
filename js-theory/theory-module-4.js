@@ -99,15 +99,140 @@
 
 // ----> contex, this
 
-// Петя бежит быстро, потому что Петя пытается поймать поезд.
-const petya = {
-  name: 'Petya',
-  showName() {
-    console.log(this.name);
+// // Петя бежит быстро, потому что Петя пытается поймать поезд.
+// const petya = {
+//   name: 'Petya',
+//   showName() {
+//     console.log(this.name);
+//   },
+// };
+
+// petya.showName();
+
+// console.dir(petya.showName)
+
+// function fn() {
+//   console.log(this);
+// }
+// fn()
+
+// const petya = {
+//   name: 'Petya',
+//   showThis() {
+//     console.log(this);
+//   },
+//   showName() {
+//     console.log(this.name);
+//   },
+// }
+
+// petya.showThis();
+// petya.showName();
+
+// function showThis() {
+//   console.log('this is showThis', this);
+// }
+
+// showThis();
+
+// const user = { name: 'Mango' };
+// user.showContext = showThis;
+
+// user.showContext();
+
+// const hotel = {
+//   name: 'Resort hotel',
+//   showThis() {
+//     console.log(this);
+//   }
+// }
+
+// const fn = function (callback) {
+//   callback();
+// }
+
+// fn(hotel.showThis)
+
+// const showThis = () => {
+//   console.log('this in showThis', this);
+// }
+// showThis();
+
+// const user = { name: 'Mango' };
+// user.showContext = showThis;
+
+// user.showContext()
+
+
+// const hotel = {
+//   name: 'Resort hotel',
+//   showThis() {
+//     const fn = () => {
+//       console.log('this is in fn :>> ', this);
+//     };
+//     fn()
+//     console.log('this is in fn :>> ', this);
+//   },
+// };
+
+// hotel.showThis()
+
+// !----> methods call, apply, bind
+
+// const greet = function () {
+//   return `Wellcome to ${this.name}!`;
+// }
+
+// const hotel = { name: 'Resort Hotel' };
+
+// console.log(greet.call(hotel));
+// console.log(greet.apply(hotel));
+
+// !----> call arguments
+
+// const greet = function (guest, stars) {
+//   return `Dear ${guest}, welcome to ${stars}-star ${this.name}!`;
+// };
+
+// const hotel = { name: 'Resort Hotel' };
+// const motel = { name: 'Sunlight Motel'}
+
+// console.log(greet.call(hotel, 'Mango', 5));
+// console.log(greet.call(motel, 'Poly', 3));
+
+// !----> apply arguments
+
+// const greet = function (guest, stars) {
+//   return `Dear ${guest}, welcome to ${stars}-star ${this.name}!`
+// }
+
+// const hotel = { name: "Resort Hotel" };
+// const motel = { name: 'Sunlight Motel' };
+// console.log(greet.apply(hotel, ['Mango', 5]));
+// console.log(greet.apply(motel, ['Poly', 3]));
+
+// !----> bind
+
+// const greet = function(guest) {
+//   return `${guest}, welcome to ${this.name}!`;
+// };
+
+// const hotel = { name: 'Resort Hotel' };
+
+// const hotelGreeter = greet.bind(hotel, 'Mango');
+
+// hotelGreeter(); // "Mango, wellcome to Resort Hotel!"
+
+
+const hotel = {
+  name: 'Resort Hotel',
+  showThis() {
+    console.log(this);
   },
 };
 
-petya.showName();
+const fn = function (callback) {
+  callback();
+}
 
-console.dir(petya.showName)
-
+fn(hotel.showThis.bind(hotel))
