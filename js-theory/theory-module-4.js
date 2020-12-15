@@ -273,3 +273,59 @@
 //   .then(handleFetchSuccess)
 // console.log('после fetch');
 
+// -----------------замыкания
+
+// /* 
+// * Global env
+// * Record: {}
+// * Parent: null
+// */
+// // Environment: Global env
+// const foo = function () {
+// /* Foo env
+// * Record: {}
+// * Parent: Global env
+// */
+//   const x = 5;
+// /* Foo env
+// * Record: {x: 5}
+// * Parent: Global env
+// */
+  
+//   // Environment: Foo env
+//   return function () {
+//     /* Anon env
+//     * Record: {}
+//     * Parent: Foo env
+//     */
+//     console.log(x);
+//   }
+// }
+// /* 
+// * Global env
+// * Record: {foo: f}
+// * Parent: null
+// */
+
+// const outerFn = foo();
+// /* 
+// * Global env
+// * Record: {foo: f, outerFn: f}
+// * Parent: null
+// */
+
+// console.log(outerFn);
+
+// outerFn();
+
+
+// const fnA = function (a) {
+//   return function fnB(b) {
+//     return function fnC(c) {
+//       console.log(a,b,c);
+//     }
+//   }
+// }
+// const res = fnA(5)(10);
+// res(15);
+// console.dir(res);
