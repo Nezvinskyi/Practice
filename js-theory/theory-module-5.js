@@ -215,41 +215,92 @@
 
 // Наследование и конструкторы
 
-const Hero = function(name, xp) {
-  this.name = name;
-  this.xp = xp;
-};
+// const Hero = function(name, xp) {
+//   this.name = name;
+//   this.xp = xp;
+// };
 
-Hero.prototype.gainXP = function (amount) {
-  console.log(`${this.name} gained ${amount} experience points`);
-  this.xp += amount;
-}
+// Hero.prototype.gainXP = function (amount) {
+//   console.log(`${this.name} gained ${amount} experience points`);
+//   this.xp += amount;
+// }
 
-const mango = new Hero('Mango', 1000);
-console.log(mango);
+// const mango = new Hero('Mango', 1000);
+// console.log(mango);
 
-mango.gainXP(500);
+// mango.gainXP(500);
 
-console.log(mango);
+// console.log(mango);
 
-const Warrior = function (name, xp, weapon) {
-  Hero.call(this, name, xp);
-  this.weapon = weapon;
-}
+// const Warrior = function (name, xp, weapon) {
+//   Hero.call(this, name, xp);
+//   this.weapon = weapon;
+// }
+
+// // Warrior.prototype.attack = function() {
+// //   console.log(`${this.name} attacks with ${this.weapon}`);
+// // }
+
+// Warrior.prototype = Object.create(Hero.prototype);
+// Warrior.prototype.constructor = Warrior;
+
 
 // Warrior.prototype.attack = function() {
 //   console.log(`${this.name} attacks with ${this.weapon}`);
+// };
+
+// const poly = new Warrior('Poly', 200, 'axe');
+// console.log(poly);
+// poly.attack();
+// poly.gainXP(500)
+
+// class Guest {
+//   // Собственные свойства класса размещаем в конструкторе
+//   constructor(name, roomNumber) {
+//     this.name = name;
+//     this.roomNumber = roomNumber;
+//   }
+
+//   // Используем геттеры и сеттеры для описания интерфейса доступа к свойствам
+//   get name() {
+//     return this.name;
+//   }
+
+//   set name(value) {
+//     this.name = value;
+//   }
 // }
 
-Warrior.prototype = Object.create(Hero.prototype);
-Warrior.prototype.constructor = Warrior;
+// const mango = new Guest('Mango', 26);
 
+// // обращение к get и set не требует вызова - т.е. без ()
+// console.log(mango.name); // Mango
 
-Warrior.prototype.attack = function() {
-  console.log(`${this.name} attacks with ${this.weapon}`);
-};
+// mango.name = 'Mango the Fluffy';
+// console.log(mango.name); // Mango the Fluffy
 
-const poly = new Warrior('Poly', 200, 'axe');
-console.log(poly);
-poly.attack();
-poly.gainXP(500)
+class User {
+
+  constructor(name) {
+    // вызывает сеттер
+    this.name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    if (value.length < 4) {
+      alert("Имя слишком короткое.");
+      return;
+    }
+    this._name = value;
+  }
+
+}
+
+let user = new User("Иван");
+alert(user.name); // Иван
+
+user = new User(""); // Имя слишком короткое.
