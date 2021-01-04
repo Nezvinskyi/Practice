@@ -190,20 +190,110 @@
 // // С приездом, Поли.
 
 
-// -------> Task 7/10
-// ----> 
-const orders = [
-  { email: 'solomon@topmail.ua', dish: 'Burger' },
-  { email: 'artemis@coldmail.net', dish: 'Pizza' },
-  { email: 'jacob@mail.com', dish: 'Taco' },
-];
+// // -------> Task 7/10
+// // ----> 
+// const orders = [
+//   { email: 'solomon@topmail.ua', dish: 'Burger' },
+//   { email: 'artemis@coldmail.net', dish: 'Pizza' },
+//   { email: 'jacob@mail.com', dish: 'Taco' },
+// ];
 
-// Пиши код ниже этой строки
-function composeMessage(position) {
-  return `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position+1}-й в очереди.`
+// // Пиши код ниже этой строки
+// function composeMessage(position) {
+//   return `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position+1}-й в очереди.`
+// }
+
+// // const messages = orders.map(obj => composeMessage.call(obj, orders.indexOf(obj)));
+// // console.log(messages);
+
+// const messages = orders.map((order, index) => composeMessage.call(order, index+1));
+// console.log(messages);
+
+// // -------> Task 8/10
+
+// const orders = [
+//   { email: 'solomon@topmail.ua', dish: 'Burger' },
+//   { email: 'artemis@coldmail.net', dish: 'Pizza' },
+//   { email: 'jacob@mail.com', dish: 'Taco' },
+// ];
+
+// // Пиши код ниже этой строки
+// function composeMessage(position) {
+//   return `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`;
+// }
+
+// const messages = orders.map((order, index) =>
+//   composeMessage.apply(order, [index + 1])
+// );
+// console.log(messages);
+
+// // -------> Task 9/10
+// const pizzaPalace = {
+//   company: 'Pizza Palace',
+// };
+
+// const burgerShack = {
+//   company: 'Burger Shack',
+// };
+
+// function composeMessage(customerName) {
+//   return `${customerName}, всегда рады вас видеть в «${this.company}».`;
+// }
+// // Пиши код ниже этой строки
+
+// const pizzaPalaceComposer = composeMessage.bind(pizzaPalace);
+// const pizzaPalaceMessage = pizzaPalaceComposer('Манго');
+
+// const burgerShackComposer = composeMessage.bind(burgerShack);
+// const burgerShackMessage = burgerShackComposer('Поли');
+
+// -------> Task 10 / 10
+// ------> Theory
+// const customer = {
+//   firstName: 'Jacob',
+//   lastName: 'Mercer',
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
+
+// function makeMessage(callback) {
+//   // callback() это вызов метода getFullName без объекта
+//   console.log(`Обрабатываем заявку от ${callback()}.`);
+// }
+
+// makeMessage(customer.getFullName.bind(customer)); // Будет ошибка при вызове функции
+
+// -------> Task 10 / 10
+
+const service = {
+  mailingList: ['mango@mail.com', 'poly@hotmail.de', 'ajax@jmail.net'],
+  subscribe(email) {
+    this.mailingList.push(email);
+    return `Почта ${email} добавлена в рассылку.`;
+  },
+  unsubscribe(email) {
+    this.mailingList = this.mailingList.filter((e) => e !== email);
+    return `Почта ${email} удалена из рассылки.`;
+  },
+};
+
+function logAndInvokeAction(email, action) {
+  console.log(`Выполняем действие с ${email}.`);
+  return action(email);
 }
 
+console.log(logAndInvokeAction('kiwi@mail.uk', service.subscribe.bind(service)));
+// Почта kiwi@mail.uk добавлена в рассылку.
 
-// composeMessage.call(orders,0);
-const messages = orders.map(obj => composeMessage.call(obj, orders.indexOf(obj)));
-console.log(messages);
+console.log(service.mailingList);
+/* ['mango@mail.com', 
+    'poly@hotmail.de', 
+    'ajax@jmail.net', 
+    'kiwi@mail.uk']*/
+
+console.log(logAndInvokeAction('poly@hotmail.de', service.unsubscribe.bind(service)));
+// Почта poly@hotmail.de удалена из рассылки.
+
+console.log(service.mailingList); // ['mango@mail.com', 'ajax@jmail.net', 'kiwi@mail.uk']
+
