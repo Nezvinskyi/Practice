@@ -81,3 +81,81 @@
 // worker.setRate = 20; //увеличим ставку
 // worker.setDays = 10; //уменьшим дни
 // console.log(worker.getSalary()); //выведет 200 - то есть 20*10
+
+
+// class Worker {
+// 	constructor(name, surname, rate, days) {
+// 		this._name = name;
+// 		this._surname = surname;
+// 		this._rate = rate;
+// 		this._days = days;
+// 	}
+// 	get getName() {
+// 		return this._name
+// 	}
+// 	get getSurname() {
+// 		return this._surname
+// 	}
+// 	get getRate() {
+// 		return this._rate
+// 	}
+// 	set setRate(value) {
+// 		this._rate = value;
+// 	}
+// 	get getDays() {
+// 		return this._days
+// 	}
+// 	set setDays(value) {
+// 		this._days = value;
+// 	}
+// 	get getSalary() {
+// 		return this._rate * this._days;
+// 	}
+// }
+
+// const worker = new Worker('Иван', 'Иванов', 10, 31);
+// console.log(worker.getName); //выведет 'Иван'
+// console.log(worker.getSurname); //выведет 'Иванов'
+// console.log(worker.getRate); //выведет 10
+// console.log(worker.getDays); //выведет 31
+// console.log(worker.getSalary); //выведет 310 - то есть 10*31
+
+// worker.setRate = 20; //увеличим ставку
+// worker.setDays = 10; //уменьшим дни
+// console.log(worker.getSalary); //выведет 200 - то есть 20*10
+
+
+// #3.
+// Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(), который параметром принимает строку, а возвращает ее в перевернутом виде, метод ucFirst(), который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной и метод ucWords, который принимает строку и делает заглавной первую букву каждого слова этой строки.
+// Наш класс должен работать так:
+// var str = new MyString();
+// console.log(str.reverse('abcde')); //выведет 'edcba'
+// console.log(str.ucFirst('abcde')); //выведет 'Abcde'
+// console.log(str.ucWords('abcde abcde abcde')); //выведет 'Abcde Abcde Abcde'
+
+// class MyString {
+// 	reverse(str) {
+// 		this.reversedString = [...str].reverse().join('');
+// 		return this.reversedString
+// 	}
+// 	ucFirst(str) {
+// 		this.ucFirstString = str[0].toUpperCase() + str.slice(1);
+// 		return this.ucFirstString
+// 	}
+// 	ucWords(str) {
+// 		this.strArray = str.split(' ');
+// 		this.newArray = [];
+// 		for (const word of this.strArray) {
+// 			console.log(word);
+// 			this.newArray.push(word[0].toUpperCase() + word.slice(1));
+// 			this.newString = this.newArray.join(' ')
+// 		}
+// 		return this.newString
+// 	}
+
+// }
+
+// const string = new MyString;
+// console.log(string.reverse('abcde'));
+// console.log(string.ucFirst('abcde'));
+// console.log(string.ucWords('every hunter whants to know'));
