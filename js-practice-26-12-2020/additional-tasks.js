@@ -165,7 +165,6 @@
 // var validator = new Validator();
 // console.log(validator.isEmail('phphtml@mail.ru'));
 // console.log(validator.isDomain('phphtml.net'));
-// console.log(validator.isDate('12.05.2020'));
 // console.log(validator.isPhone('+375 (29) 817-68-92')); //тут можете формат своей страны
 
 
@@ -173,7 +172,13 @@ class Validator {
 	isEmail(str) {
 		return /[a-z0-9]@[a-z0-9].[a-z]/.test(str); 
 	}
-
+	isDate(str) {
+		let regex = /[0-9]{2}.[0-9]{2}.[0-9]{4}/;
+		console.log(str);
+		console.log(str.match(regex));
+		console.log(regex.test(str));
+	}
 }
 const validator = new Validator;
-console.log(validator.isEmail('1111@fsdfsd'));
+// console.log(validator.isEmail('1111@fsdfsd'));
+console.log(validator.isDate('12.15.2020'));
