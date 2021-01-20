@@ -1,0 +1,16 @@
+.product-card__name::before {
+  display: inline-block;
+  content: '';
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.product-card__name--available::before {
+  background-color: green;
+}
+
+.product-card__name--unavailable::before {
+  background-color: red;
+}
