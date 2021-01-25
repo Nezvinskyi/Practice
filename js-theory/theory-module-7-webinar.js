@@ -139,3 +139,92 @@
 // 	.textContent += ' overnext element';
 
 // elemRef.parentElement.style.backgroundColor = 'magenta'
+
+// 22.01.2021
+// Task - 1
+const inputRef = document.querySelector('input');
+inputRef.addEventListener('blur', e => {
+	const { value } = (e.target)
+	console.log(value);
+	
+	if (!validate(value)) {
+		e.target.classList.add('error')
+	} 
+})
+inputRef.addEventListener('focus', e => {
+	e.target.classList.remove('error')
+})
+function validate(str) {
+	return str.length > 3;
+}
+
+// Task - 2
+//popup
+const popupBtnRef = document.querySelector('.js-open-popup-btn');
+const popupRef = document.querySelector('.js-popup');
+popupBtnRef.addEventListener('click', ()=> {
+	popupRef.setAttribute('open', 'true');
+	window.addEventListener('keydown', onEscPress)
+}) 
+
+function onEscPress(event) {
+	if (event.code === 'Escape') {
+		popupRef.removeAttribute('open');
+		window.removeEventListener('keydown', onEscPress)
+	}
+}
+
+// Task - 3
+// Alt+click
+
+const rectRef = document.querySelector('.rect');
+rectRef.addEventListener('click', event => {
+	return (event.altKey) ? rectRef.classList.add('box-clicked'):rectRef.classList.remove('box-clicked')
+})
+//right click button
+rectRef.addEventListener('contextmenu', () => {
+	console.log('right click!');
+})
+
+// Task - 4
+// (Enter text to p)
+
+const inputToEnterRef = document.querySelector('#js-input-toenter');
+const textDivRef = document.querySelector('.enter-text');
+
+inputToEnterRef.addEventListener('keydown', (event) => {
+	if (event.code !== 'Enter') return;
+	const textRef = document.createElement('p');
+	textRef.textContent = event.target.value;
+	textDivRef.prepend(textRef);
+	event.target.value = '';
+})
+// better use <form> and <button type='submit'>
+
+// Task - 4
+// todo list 
+const formRef = document.querySelector('#todo-form');
+const todoInputRef = document.querySelector('#todo-input');
+const todoListRef = document.querySelector('.todo-list');
+
+function addTodoItem(input) {
+	const todoItemRef = document.createElement('li');
+	todoItemRef.classList.add('todo-item');
+	todoItemRef.textContent = input;
+	todoItemRef.addEventListener('click', doneTodoItem)
+	return todoItemRef;
+}
+
+function doneTodoItem(event) {
+event.target.classList.toggle('done');
+}
+
+formRef.addEventListener('submit', event => {
+	event.preventDefault();
+	const { value } = todoInputRef;
+	if (!value) return;
+	const todoItem = addTodoItem(value);
+	todoListRef.prepend(todoItem);
+	todoInputRef.value = '';
+})
+

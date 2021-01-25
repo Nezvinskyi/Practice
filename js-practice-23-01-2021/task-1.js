@@ -5,7 +5,8 @@
 // 4. Добавить к секундам десятые = 0.6s
 // 5. Когда таймер доходит до 60-ти секунд - у нас добавляется показатель минут
 // 6. Добавляем 3-ую кнопку Lap (круг), при нажатии на которую фиксируется текущее значение секундомера (не останавливая его) и добавляется это значение в список на экране
-const body = document.querySelector("body");
+
+const codeHere = document.querySelector("#code-here");
 
 const ulRef = document.createElement('ul');
 
@@ -15,12 +16,12 @@ const arr = [
 	{title: "lap", name: "lap"}
 ];
 const btn = ({ title, name }) => `<button name=${name}>${title}</button>`;
-console.dir(btn);
-arr.forEach((el) => body.insertAdjacentHTML("beforeend", btn(el)));
+
+arr.forEach((el) => codeHere.insertAdjacentHTML("beforeend", btn(el)));
 const span = document.createElement("span");
 span.textContent = 0;
-body.prepend(span);
-body.appendChild(ulRef);
+codeHere.prepend(span);
+codeHere.appendChild(ulRef);
 const btnStart = document.querySelector('[name = "start"]');
 const btnStop = document.querySelector('[name = "stop"]');
 const btnLap = document.querySelector('[name = "lap"]');

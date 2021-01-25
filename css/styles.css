@@ -14,3 +14,22 @@
 .product-card__name--unavailable::before {
   background-color: red;
 }
+
+.box {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  align-items: center;
+  justify-content: center;
+}
+
+.box--active {
+  background-color: teal;
+}
+
+.inner-box {
+  width: 60px;
+  height: 60px;
+  background-color: yellow;
+}
