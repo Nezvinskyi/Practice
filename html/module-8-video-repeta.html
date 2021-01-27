@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Module 8</title>
+	<link rel="stylesheet" href="../css/module-8.css">
+</head>
+<body>
+	<a href="../"><button>На главную</button></a>
+
+	<h1>Module 8 (video Repeta 1)</h1>
+	<h2>Event bubbling</h2>
+	<div id="parent">
+		PARENT
+		<div id="child">
+			CHILD
+			<div id="inner-child">
+				INNER-CHILD
+			</div>
+		</div>
+	</div>
+	<br>
+	<h2>Event delegation</h2>
+	<ul class="tags js-tags">
+		<li class="tags__item">
+			<button class="tags__btn" data-value = "html">#html</button>
+		</li>
+		<li class="tags__item">
+			<button class="tags__btn" data-value = "css">#css</button>
+		</li>
+		<li class="tags__item">
+			<button class="tags__btn" data-value = "javascript">#javascript</button>
+		</li>
+		<li class="tags__item">
+			<button class="tags__btn" data-value = "npm">#npm</button>
+		</li>
+		<li class="tags__item">
+			<button class="tags__btn" data-value = "webpack">#webpack</button>
+		</li>
+		<li class="tags__item">
+			<button class="tags__btn" data-value = "react">#react</button>
+		</li>
+		<li class="tags__item">
+			<button class="tags__btn" data-value = "redux">#redux</button>
+		</li>
+		<li class="tags__item">
+			<button class="tags__btn" data-value = "nodejs">#nodejs</button>
+		</li>
+	</ul>
+	
+	<p class="js-output"></p>
+
+	<script src="../js-theory/theory-module-8.js"></script>
+</body>
+</html>
