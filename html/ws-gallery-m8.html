@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Workshop: gallery</title>
+	<link rel="stylesheet" href="../css/ws-gallery.css" />
+</head>
+
+<body>
+	<a href="../"><button>На главную</button></a>
+	<h1>Мастерская: галлерея</h1>
+	<h2>Модуль 8. Занятие 15.</h2>
+	<!-- В этот список добавляй элементы галереи -->
+	<div class="container">
+	<ul class="gallery js-gallery"></ul>
+
+	<!--
+      Модальное окно для полноразмерного изображения
+      Для того чтобы открыть, необходимо добавить на div.lightbox CSS-класс is-open
+    -->
+	<div class="lightbox js-lightbox">
+		<div class="lightbox__overlay"></div>
+
+		<div class="lightbox__content">
+			<img class="lightbox__image" src="" alt="" />
+		</div>
+
+		<button type="button" class="lightbox__button"
+			data-action="close-lightbox"></button>
+	</div>
+</div>
+		<script src="../js-workshops/ws-gallery.js" type="module"></script>
+</body>
+
+</html>

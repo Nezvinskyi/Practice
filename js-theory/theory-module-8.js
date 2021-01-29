@@ -65,3 +65,39 @@ function updateOutput(value) {
 function toggleActiveTag(nextActiveTag) {
 	nextActiveTag.classList.remove('tags__btn--active');
 }
+
+//---------------------video 2- chatty events--------------
+// thottling and debouncing with Lodash
+
+// mousemove
+
+const coordsOutputRef = document.querySelector('.js-coords');
+let mouseMoveCallbackCounter = 0;
+
+const throttledMoveCallback = _.throttle(event => {
+	mouseMoveCallbackCounter += 1;
+	coordsOutputRef.textContent = `
+		number of calls of function: ${mouseMoveCallbackCounter},
+		X: ${event.clientX},
+		Y: ${event.clientY}
+	`;
+}, 200)
+
+window.addEventListener('mousemove', throttledMoveCallback)
+
+// input
+
+const inputRef = document.querySelector('.js-input');
+const outputRef = document.querySelector('.js-chattyOutput');
+let inputCallbackCounter = 0;
+
+const debouncedInputCallback = _.debounce(event => {
+	inputCallbackCounter += 1;
+	
+	outputRef.textContent = `
+		number of calls of function: ${inputCallbackCounter},
+		value: ${event.target.value}`;
+
+}, 300)
+
+inputRef.addEventListener('input', debouncedInputCallback)
