@@ -101,3 +101,28 @@ const debouncedInputCallback = _.debounce(event => {
 }, 300)
 
 inputRef.addEventListener('input', debouncedInputCallback)
+
+// IntersectionObserver
+
+const onEntry = (entries, observer) => { 
+	entries.forEach(entry => {
+
+		if (entry.isIntersecting) {
+			console.log(`Box ${entry.target.textContent} intersecting Root`);
+			// observer.disconnect();
+		}
+	});
+}
+
+const options = {
+	rootMargin: '50px',
+	// threshold: [0, 0.25, .5, .75, 1],
+	// threshold: 1,
+};
+
+const io = new IntersectionObserver(onEntry, options);
+
+const boxRef = document.querySelector('.js-box');
+
+io.observe(boxRef)
+console.log('object');

@@ -60,3 +60,31 @@ div {
   color: #fff;
   background-color: #3f51b5;
 }
+
+/* IntersectionObserver */
+
+.box {
+  height: 400px;
+  width: 400px;
+  font-size: 128px;
+  text-align: center;
+  line-height: 400px;
+  color: #fff;
+  margin-bottom: 64px;
+}
+
+.box:nth-child(1) {
+  background-color: #3f51b5;
+}
+
+.box:nth-child(2) {
+  background-color: #ff5722;
+}
+
+.box:nth-child(3) {
+  background-color: #00bcd4;
+}
+
+.box:nth-child(4) {
+  background-color: #ff4081;
+}
