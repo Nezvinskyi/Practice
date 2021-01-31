@@ -1,79 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>JS-theory-module-8-webinar</title>
-	<link rel="stylesheet" href="../css/module-8-webinar.css">
-</head>
-<body>
-	<a href="../"><button>На главную</button></a>
-	
-	<h2>Module 8</h2>
-	<h3>Theory. Webinar 27.01.2021</h3>
-<!-- ---------------------------------------- -->
-	<h4>Task-1 (color box when hover over button)</h4>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS-theory-module-8-webinar</title>
+    <link rel="stylesheet" href="../css/module-8-webinar.css" />
+  </head>
+  <body>
+    <a href="../"><button>На главную</button></a>
 
-	<div class="card">
-		<span class="card__delete">X</span>
-		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus saepe ullam atque? Fugiat deleniti necessitatibus repellendus accusantium veniam! Tenetur maiores optio animi repellendus ipsum provident voluptatibus dolorum itaque in officia.
-	</div>
-<!-- ---------------------------------------- -->
-<h4>Task-2 (4 red boxes. change color to green when click on box. if there is already a green box - switch to red)</h4>
+    <h2>Module 8</h2>
+    <h3>Theory. Webinar 27.01.2021</h3>
+    <!-- ---------------------------------------- -->
+    <h4>Task-1 (color box when hover over button)</h4>
 
-<div class="parent">
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-</div>
+    <div class="card">
+      <span class="card__delete">X</span>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus saepe
+      ullam atque? Fugiat deleniti necessitatibus repellendus accusantium
+      veniam! Tenetur maiores optio animi repellendus ipsum provident
+      voluptatibus dolorum itaque in officia.
+    </div>
+    <!-- ---------------------------------------- -->
+    <h4>
+      Task-2 (4 red boxes. change color to green when click on box. if there is
+      already a green box - switch to red)
+    </h4>
 
-<!-- ---------------------------------------- -->
-<h4>Task-3 (field of 8x8 squares. click on square toggles white/black background. add button to toggle all squares colors)</h4>
+    <div class="parent">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
 
-<ul class="field"></ul>
-<button class="reverse">reverse colors</button>
+    <!-- ---------------------------------------- -->
+    <h4>
+      Task-3 (field of 8x8 squares. click on square toggles white/black
+      background. add button to toggle all squares colors)
+    </h4>
 
-<!-- ---------------------------------------- -->
-<h4>Task-4 ()</h4>
-<ul class="tree">
-	<li class="tree__item">Animals
-		<ul class="tree__branch">
-			<li class="tree__item">Mammals
-				<ul class="tree__branch">
-					<li class="tree__item">Cows</li>
-					<li class="tree__item">Donkeys</li>
-					<li class="tree__item">Dogs</li>
-					<li class="tree__item">Tigers</li>
-				</ul>
-			</li>
-			<li class="tree__item">Other
-				<ul class="tree__branch">
-					<li class="tree__item">Snakes</li>
-					<li class="tree__item">Birds</li>
-					<li class="tree__item">Lizards</li>
-				</ul>
-			</li>
-		</ul>
-	</li>
-	<li class="tree__item">Fish
-		<ul class="tree__branch">
-			<li class="tree__item">Aquariumfishes
-				<ul class="tree__branch">
-					<li class="tree__item">Guppy</li>
-					<li class="tree__item">Angelfish</li>
-				</ul>
-			</li>
-			<li class="tree__item">Seafishes
-				<ul class="tree__branch">
-					<li class="tree__item">Seabass</li>
-				</ul>
-			</li>
-		</ul>
-	</li>
-</ul>
+    <ul class="field"></ul>
+    <button class="reverse">reverse colors</button>
 
-	<script src="../js-theory/theory-module-8-webinar.js" type="module"></script>
-	
-</body>
+    <!-- ---------------------------------------- -->
+    <h4>Task-4 (folding/unfolding branches)</h4>
+    <ul class="tree">
+      <li class="tree__item">
+        Animals
+        <ul class="tree__branch">
+          <li class="tree__item">
+            Mammals
+            <ul class="tree__branch">
+              <li class="tree__item">Cows</li>
+              <li class="tree__item">Donkeys</li>
+              <li class="tree__item">Dogs</li>
+              <li class="tree__item">Tigers</li>
+            </ul>
+          </li>
+          <li class="tree__item">
+            Other
+            <ul class="tree__branch">
+              <li class="tree__item">Snakes</li>
+              <li class="tree__item">Birds</li>
+              <li class="tree__item">Lizards</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="tree__item">
+        Fish
+        <ul class="tree__branch">
+          <li class="tree__item">
+            Aquariumfishes
+            <ul class="tree__branch">
+              <li class="tree__item">Guppy</li>
+              <li class="tree__item">Angelfish</li>
+            </ul>
+          </li>
+          <li class="tree__item">
+            Seafishes
+            <ul class="tree__branch">
+              <li class="tree__item">Seabass</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- ------------------------------------ -->
+    <h3>Theory. Webinar 29.01.2021</h3>
+    <h4>Task-1&2 (infinity scroll & throttle)</h4>
+    <button class="start-btn">start infinity scroll</button>
+    <div class="countries-list"></div>
+
+    <!-- ------------------------------------ -->
+    <h4>Task-3&4 (live search & debounce)</h4>
+    <input type="text" class="search" />
+    <div class="countries-filter-list"></div>
+
+    <!-- ------------------------------------ -->
+    <h4>Task-5 (infinity scroll & IntersectionObserver)</h4>
+
+    <div class="io-country-list"></div>
+    <div class="anchor"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <script src="../js-theory/countries.js" type="module"></script>
+    <script
+      src="../js-theory/theory-module-8-webinar.js"
+      type="module"
+    ></script>
+  </body>
 </html>

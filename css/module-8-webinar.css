@@ -72,3 +72,16 @@
 .tree__item {
   cursor: pointer;
 }
+
+/* webinar 2 */
+/* task-1 */
+.country {
+  border: 1px solid black;
+  padding: 12px;
+  margin: 8px;
+}
+
+/* task-5 */
+.anchor {
+  height: 2px;
+}
