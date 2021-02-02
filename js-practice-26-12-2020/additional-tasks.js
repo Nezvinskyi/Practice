@@ -1,57 +1,63 @@
+/* eslint-disable no-console */
 // from Slack
 
-// #1.
-// Создайте функцию конструктор Calculator, которая создаёт «расширяемые» объекты калькулятора.
-// Задание состоит из двух частей.
-// Во-первых, реализуйте метод calculate(str), который принимает строку типа "1 + 2" в формате «ЧИСЛО оператор ЧИСЛО» (разделено пробелами) и возвращает результат. Метод должен понимать плюс + и минус -.
-// Пример использования:
-// let calc = new Calculator;
-// alert( calc.calculate("3 + 7") ); // 10
-// Затем добавьте метод addMethod(name, func), который добавляет в калькулятор новые операции. Он принимает оператор name и функцию с двумя аргументами func(a,b), которая описывает его.
-// Например, давайте добавим умножение *, деление / и возведение в степень **:
-// let powerCalc = new Calculator;
-// powerCalc.addMethod("*", (a, b) => a * b);
-// powerCalc.addMethod("/", (a, b) => a / b);
-// powerCalc.addMethod("**", (a, b) => a ** b);
-// let result = powerCalc.calculate("2 ** 3");
-// alert( result ); // 8
-// Для этой задачи не нужны скобки или сложные выражения.
-// Числа и оператор разделены ровно одним пробелом.
+/*
+#1.
+Создайте функцию конструктор Calculator, которая создаёт «расширяемые» объекты калькулятора.
+Задание состоит из двух частей.
+Во-первых, реализуйте метод calculate(str), который
+принимает строку типа "1 + 2" в формате «ЧИСЛО оператор
+ЧИСЛО» (разделено пробелами) и возвращает результат.Метод должен понимать плюс + и минус -.
+Пример использования:
+let calc = new Calculator;
+alert( calc.calculate("3 + 7") ); // 10
+Затем добавьте метод addMethod(name, func), который
+добавляет в калькулятор новые операции. Он принимает
+оператор name и функцию с двумя аргументами func(a,b), которая описывает его.
+Например, давайте добавим умножение *, деление / и возведение в степень **:
+let powerCalc = new Calculator;
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => a ** b);
+let result = powerCalc.calculate("2 ** 3");
+alert( result ); // 8
+Для этой задачи не нужны скобки или сложные выражения.
+Числа и оператор разделены ровно одним пробелом.
+*/
 
-// const Calculator = function () {
-// 	this.methods = {
-// 		'+': (a, b) => a + b,
-// 		'-': (a, b) => a - b
-// 	};
+const Calculator = function () {
+  this.methods = {
+    '+': (a, b) => a + b,
+    '-': (a, b) => a - b,
+  };
 
-// 	this.calculate = function (str) {
-// 		this.stringArray = str.split(' ');
-// 		this.a = +this.stringArray[0]
-// 		this.b = +this.stringArray[this.stringArray.length - 1]
-// 		this.operator = this.stringArray[1]
-		
-// 		return `${str} = ${this.methods[this.operator](this.a, this.b)}`
-// 	}
-	
-// 	this.addMethod = function (name, func) {
-// 		this.methods[name] = func
-// 	}
-// }
+  this.calculate = function (str) {
+    this.stringArray = str.split(' ');
+    this.a = +this.stringArray[0];
+    this.b = +this.stringArray[this.stringArray.length - 1];
+    this.operator = this.stringArray[1];
 
-// let calc = new Calculator;
-// console.log(calc.calculate('3 + 7'))
-// console.log(calc.calculate('3 - 7'))
+    return `${str} = ${this.methods[this.operator](this.a, this.b)}`;
+  };
 
-// calc.addMethod("*", (a, b) => a * b)
+  this.addMethod = function (name, func) {
+    this.methods[name] = func;
+  };
+};
 
-// console.log(calc.calculate('3 * 7'));
+let calc = new Calculator();
+console.log(calc.calculate('3 + 7'));
+console.log(calc.calculate('3 - 7'));
 
-// calc.addMethod("/", (a, b) => a / b)
-// calc.addMethod("**", (a, b) => a ** b)
+calc.addMethod('*', (a, b) => a * b);
 
-// console.log(calc.calculate('3 / 7'));
-// console.log(calc.calculate('3 ** 7'));
+console.log(calc.calculate('3 * 7'));
 
+calc.addMethod('/', (a, b) => a / b);
+calc.addMethod('**', (a, b) => a ** b);
+
+console.log(calc.calculate('3 / 7'));
+console.log(calc.calculate('3 ** 7'));
 
 // ------------>
 // #2.
@@ -64,7 +70,9 @@
 // console.log(worker.days); //выведет 31
 // console.log(worker.getSalary()); //выведет 310 - то есть 10*31
 // ====
-// Модифицируйте класс Worker из предыдущей задачи следующим образом: сделайте все его свойства приватными, а для их чтения сделайте методы-геттеры. Наш класс теперь будет работать так:
+// Модифицируйте класс Worker из предыдущей задачи
+// следующим образом: сделайте все его свойства приватными,
+// а для их чтения сделайте методы - геттеры.Наш класс теперь будет работать так:
 // var worker = new Worker('Иван', 'Иванов', 10, 31);
 // console.log(worker.getName); //выведет 'Иван'
 // console.log(worker.getSurname); //выведет 'Иванов'
@@ -81,7 +89,6 @@
 // worker.setRate = 20; //увеличим ставку
 // worker.setDays = 10; //уменьшим дни
 // console.log(worker.getSalary()); //выведет 200 - то есть 20*10
-
 
 // class Worker {
 // 	constructor(name, surname, rate, days) {
@@ -124,7 +131,6 @@
 // worker.setDays = 10; //уменьшим дни
 // console.log(worker.getSalary); //выведет 200 - то есть 20*10
 
-
 // #3.
 // Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(), который параметром принимает строку, а возвращает ее в перевернутом виде, метод ucFirst(), который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной и метод ucWords, который принимает строку и делает заглавной первую букву каждого слова этой строки.
 // Наш класс должен работать так:
@@ -166,19 +172,47 @@
 // console.log(validator.isEmail('phphtml@mail.ru'));
 // console.log(validator.isDomain('phphtml.net'));
 // console.log(validator.isPhone('+375 (29) 817-68-92')); //тут можете формат своей страны
-
-
+/*
 class Validator {
-	isEmail(str) {
-		return /[a-z0-9]@[a-z0-9].[a-z]/.test(str); 
-	}
-	isDate(str) {
-		let regex = /[0-9]{2}.[0-9]{2}.[0-9]{4}/;
-		console.log(str);
-		console.log(str.match(regex));
-		console.log(regex.test(str));
-	}
+  isEmail(str) {
+    return /[a-z0-9]@[a-z0-9].[a-z]/.test(str);
+  }
+  isDate(str) {
+    let regex = /[0-9]{2}.[0-9]{2}.[0-9]{4}/;
+    console.log(str);
+    console.log(str.match(regex));
+    return regex.test(str);
+  }
 }
-const validator = new Validator;
-// console.log(validator.isEmail('1111@fsdfsd'));
+const validator = new Validator();
+console.log(validator.isEmail('1111@fsdfsd.com'));
 console.log(validator.isDate('12.15.2020'));
+*/
+
+/*
+#5.
+Напишите функцию-конструктор Accumulator(startingValue).
+Объект, который она создаёт, должен уметь следующее:
+Хранить «текущее значение» в свойстве value. Начальное 
+значение устанавливается в аргументе конструктора startingValue.
+Метод read() использует prompt для получения числа и прибавляет его к свойству value.
+Таким образом, свойство value является текущей суммой всего,
+что ввёл пользователь при вызовах метода read(),
+с учётом начального значения startingValue.
+Ниже вы можете посмотреть работу кода:
+*/
+
+// class Accumulator {
+//   constructor(value) {
+//     this.value = value;
+//   }
+
+//   read() {
+//     const newValue = +prompt('Enter the value:');
+//     this.value += newValue;
+//   }
+// }
+// const accumulator = new Accumulator(1); // начальное значение 1
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+// accumulator.read(); // прибавит ввод prompt к текущему значению
+// console.log(accumulator.value); // выведет сумму этих значений
