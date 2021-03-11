@@ -13,6 +13,7 @@ class MoviePagination {
     this.totalPages = 0;
     this.goToPrevPage = this.goToPrevPage.bind(this);
     this.goToNextPage = this.goToNextPage.bind(this);
+    this.loadMore = this.loadMore.bind(this);
   }
 
   get movies() {
@@ -30,23 +31,46 @@ class MoviePagination {
   goToPrevPage() {
     if (this.currentPage === 1) return;
     this.currentPage -= 1;
-    this.fetchMovies();
+    this.fetchMovies().then(({ results }) => {
+      this.movies = this.convertMoviesData(results);
+    });
   }
 
   goToNextPage() {
     if (this.currentPage === this.totalPages) return;
     this.currentPage += 1;
-    this.fetchMovies();
-  }
-
-  fetchMovies() {
-    movieApi.fetchPopular(this.currentPage).then(result => {
-      const { results, total_pages } = result;
-      this.movies = results.map(movie => movieAdapter(movie));
-      this.total_pages = total_pages;
+    this.fetchMovies().then(({ results }) => {
+      this.movies = this.convertMoviesData(results);
     });
   }
 
+  loadMore() {
+    this.currentPage += 1;
+    return this.fetchMovies().then(({ results }) => {
+      this.addMovies(this.convertMoviesData(results));
+    });
+  }
+
+  addMovies(newMovies) {
+    this.movies = [...this.movies, ...newMovies];
+  }
+
+  convertMoviesData(movieList) {
+    return movieList.map(movie => movieAdapter(movie));
+  }
+
+  fetchMovies() {
+    return movieApi
+      .fetchPopular(this.currentPage)
+      .then(({ results, total_pages }) => ({ results, total_pages }));
+  }
+
+  mount() {
+    this.fetchMovies().then(({ results, total_pages }) => {
+      this.movies = this.convertMoviesData(results);
+      this.totalPages = total_pages;
+    });
+  }
   render() {
     this.element.innerHTML = moviesListTemplate(this.movies);
   }
