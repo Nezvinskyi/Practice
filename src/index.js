@@ -1,25 +1,11 @@
-// import './js/theory';
-// import './js/r-get';
-// import './js/c-post';
-// import './js/u-patch';
-// import './js/d-delete';
+import './css/common.css';
+import MoviePagination from './js/movie-pagination';
 
-const BASE_URL = 'http://localhost:3000';
+const movies = new MoviePagination('.movie-list');
+const prevPaginationBtnRef = document.querySelector('#prev-page');
+const nextPaginationBtnRef = document.querySelector('#next-page');
 
-function getBookNames() {
-  fetch(`${BASE_URL}/books`)
-    .then(response => response.json())
-    .then(data => {
-      console.log('object');
-      console.log(data);
-      showBookCredentials(data, 'title');
-    });
-}
+movies.fetchMovies();
 
-getBookNames();
-
-function showBookCredentials(data, property) {
-  data.forEach(element => {
-    console.log(element.id, element[property]);
-  });
-}
+prevPaginationBtnRef.addEventListener('click', movies.goToPrevPage);
+nextPaginationBtnRef.addEventListener('click', movies.goToNextPage);
