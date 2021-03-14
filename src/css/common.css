@@ -16,25 +16,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-.card {
-  width: 288px;
-}
-
-.card-text {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.card-img-top {
-  display: flex;
-  justify-content: center;
-}
-
-.search-form {
-  padding: 10px;
-}
-
-.card {
-  margin: 10px;
-}

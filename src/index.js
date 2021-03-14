@@ -1,25 +1,64 @@
-// import './js/theory';
-// import './js/r-get';
-// import './js/c-post';
-// import './js/u-patch';
-// import './js/d-delete';
-
 const BASE_URL = 'http://localhost:3000';
 
-function getBookNames() {
-  fetch(`${BASE_URL}/books`)
-    .then(response => response.json())
-    .then(data => {
-      console.log('object');
-      console.log(data);
-      showBookCredentials(data, 'title');
-    });
+async function addBook(book) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  };
+
+  const response = await fetch(`${BASE_URL}/books`, options);
+  const newBook = await response.json();
+
+  return newBook;
 }
 
-getBookNames();
+async function addBookAndUpdateUI() {
+  try {
+    const book = await addBook({});
+    console.log(book);
+  } catch (error) {
+    console.log(error);
+  }
+}
+// addBookAndUpdateUI();
 
-function showBookCredentials(data, property) {
-  data.forEach(element => {
-    console.log(element.id, element[property]);
-  });
+async function fetchBooks() {
+  const response = await fetch(`${BASE_URL}/books`);
+  const books = await response.json();
+  console.log(books);
+  return books;
+}
+
+async function fetchBookById(bookId) {
+  const response = await fetch(`${BASE_URL}/books/${bookId}`);
+  const book = await response.json();
+  return book;
+}
+
+async function removeBook(bookId) {
+  const url = `${BASE_URL}/books/${bookId}`;
+  const options = {
+    method: 'DELETE',
+  };
+
+  const response = await fetch(url, options);
+  const book = await response.json();
+  return book;
+}
+
+async function updateBookById(update, bookId) {
+  const options = {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(update),
+  };
+
+  const response = await fetch(`${BASE_URL}/books/${bookId}`, options);
+  const book = await response.json();
+  return book;
 }
