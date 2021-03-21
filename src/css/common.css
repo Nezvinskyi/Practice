@@ -18,3 +18,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+#sentinel {
+  width: 100px;
+  height: 100px;
+  background-color: cadetblue;
+}
